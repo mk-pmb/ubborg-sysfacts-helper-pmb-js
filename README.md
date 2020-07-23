@@ -42,7 +42,7 @@ Start collecting plans from `collect(...collArgs)`
 and return an async functions `mtdProxy([mtdName, ...mtdArgs])`.
 
 The `mtdProxy` function will await the plans,
-call the method `mtdName` (default: `getFacts`)
+call the method `mtdName` (default: `getSysFacts`)
 with arguments `...mtdArgs` on each of them, await and collect all the results
 in a structure exactly like the plans were packaged,
 and return a Promise for this collection.

@@ -12,8 +12,8 @@ async function collectOneTopic(bun, topic, sug, veri) {
   if (sug && veri) { throw new Error('Internal API error. This is a bug.'); }
   const plan = await bun.needs('sysFacts', topic);
   await plan.hatchedPr;
-  plan.suggestFacts(sug);
-  plan.declareFacts(veri);
+  plan.suggestSysFacts(sug);
+  plan.declareSysFacts(veri);
   return plan;
 }
 
@@ -43,7 +43,7 @@ Object.assign(collect, {
     async function mtdProxy(mtdName, ...mtdArgs) {
       const plans = await mtdProxy.plansPr;
       function prx(plan) {
-        const mtdImpl = plan[mtdName || 'getFacts'];
+        const mtdImpl = plan[mtdName || 'getSysFacts'];
         return mtdImpl.apply(plan, mtdArgs);
       }
       if (isStr(plans.typeName)) { return prx(plans); }

@@ -1,5 +1,5 @@
 { "name": "ubborg-sysfacts-helper-pmb",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Helper functions for handling sysFacts resources.",
   "keywords": [],
 
@@ -21,6 +21,7 @@
   "directories": { "test": "test" },
 
   "dependencies": {
+    "is-fn": "^2.0.0",
     "is-string": "^1.0.4",
     "p-props": "^4.0.0"
   },

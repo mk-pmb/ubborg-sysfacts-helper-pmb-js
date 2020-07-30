@@ -2,6 +2,7 @@
 
 import pProps from 'p-props';
 import isStr from 'is-string';
+import isFun from 'is-fn';
 
 const { isArray } = Array;
 
@@ -41,10 +42,13 @@ Object.assign(collect, {
 
   mtd(...collArgs) {
     async function mtdProxy(mtdName, ...mtdArgs) {
+      if (!mtdName) { return mtdProxy('getSysFacts', ...mtdArgs); }
       const plans = await mtdProxy.plansPr;
       function prx(plan) {
-        const mtdImpl = plan[mtdName || 'getSysFacts'];
-        return mtdImpl.apply(plan, mtdArgs);
+        const mtdImpl = plan[mtdName];
+        if (isFun(mtdImpl)) { return mtdImpl.apply(plan, mtdArgs); }
+        const e = String(plan) + " doesn't have a method called " + mtdName;
+        throw new Error(e);
       }
       if (isStr(plans.typeName)) { return prx(plans); }
       if (isArray(plans)) { return pMap(plans, prx); }

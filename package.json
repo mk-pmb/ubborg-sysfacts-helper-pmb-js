@@ -1,5 +1,5 @@
 { "name": "ubborg-sysfacts-helper-pmb",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Helper functions for handling sysFacts resources.",
   "keywords": [],
 
@@ -19,14 +19,21 @@
   "main": "syf.mjs",
   "scripts": { "test": "nodejs test/all.js" },
   "directories": { "test": "test" },
+  "eslintConfig": { "extends": "nodejs-pmb" },
 
   "dependencies": {
+    "getown": "^1.0.1",
     "is-fn": "^2.0.0",
-    "is-string": "^1.0.4",
-    "p-props": "^4.0.0"
+    "is-string": "^1.0.7",
+    "p-props": "^4.0.0",
+    "ubuntu-versions-table-pmb": "^0.2.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-config-nodejs-pmb": "^0.3.9",
+    "eslint-plugin-json-light-pmb": "^1.0.7",
+    "eslint-plugin-n": "^17.16.2"
+  },
 
 
-  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+  "engines": { "npm": ">=7.0.0", "node": ">=16.0.0" }
 }

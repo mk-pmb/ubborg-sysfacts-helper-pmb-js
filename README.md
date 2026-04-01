@@ -39,7 +39,7 @@ The `verify` argument shold be either:
 ### collect.mtd(...collArgs)
 
 Start collecting plans from `collect(...collArgs)`
-and return an async functions `mtdProxy([mtdName, ...mtdArgs])`.
+and return an async function `mtdProxy([mtdName, ...mtdArgs])`.
 
 The `mtdProxy` function will await the plans,
 call the method `mtdName` (default: `getSysFacts`)
